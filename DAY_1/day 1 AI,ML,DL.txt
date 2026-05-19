@@ -1,0 +1,11 @@
+Artificial Intelligence (AI), Machine Learning (ML), and Deep Learning (DL) are some of the most important technologies in modern computing. These technologies are transforming industries by enabling machines to perform tasks that normally require human intelligence such as learning, reasoning, decision-making, and problem-solving.
+
+Artificial Intelligence is the broader concept that focuses on creating intelligent systems capable of mimicking human behavior. AI systems can analyze information, understand patterns, make decisions, and automate tasks. Common examples of AI include virtual assistants like Siri and Google Assistant, self-driving cars, chatbots, recommendation systems, and facial recognition technologies.
+
+Machine Learning is a subset of Artificial Intelligence that enables machines to learn automatically from data without being explicitly programmed. Instead of following fixed instructions, ML algorithms identify patterns from data and improve their performance over time. Machine Learning is widely used in spam filtering, product recommendations, fraud detection, healthcare predictions, and data analytics.
+
+Machine Learning mainly consists of three types: supervised learning, unsupervised learning, and reinforcement learning. In supervised learning, the model is trained using labeled data. In unsupervised learning, the model identifies hidden patterns from unlabeled data. Reinforcement learning allows machines to learn through rewards and penalties, commonly used in robotics and gaming systems.
+
+Deep Learning is a specialized subset of Machine Learning that uses artificial neural networks inspired by the structure of the human brain. Deep Learning is designed to process large amounts of complex data and is highly effective in tasks such as image recognition, speech processing, natural language understanding, and autonomous systems. Technologies like voice assistants, facial recognition, and self-driving vehicles heavily rely on Deep Learning models.
+
+The relationship between AI, ML, and DL can be understood as a hierarchy where Deep Learning is a subset of Machine Learning, and Machine Learning itself is a subset of Artificial Intelligence. While AI focuses on building intelligent systems, ML provides learning capability through data, and DL enhances learning using multi-layer neural networks.
