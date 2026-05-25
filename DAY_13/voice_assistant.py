@@ -2,37 +2,52 @@ import speech_recognition as sr
 import pyttsx3
 from datetime import datetime
 
-voice_reader = sr.Recognizer()
-speaker = pyttsx3.init()
+listener = sr.Recognizer()
+engine = pyttsx3.init()
 
-def talk(message):
-    print("AI Assistant:", message)
-    speaker.say(message)
-    speaker.runAndWait()
+def speak(text):
+    print("Assistant:", text)
+    engine.say(text)
+    engine.runAndWait()
 
-def hear():
-    with sr.Microphone() as mic:
-        print("Speak Something...")
-        sound = voice_reader.listen(mic, timeout=5)
-        text = voice_reader.recognize_google(sound)
-        return text.lower()
+def listen():
 
-talk("Hi! Your smart assistant is now active.")
+    try:
+        with sr.Microphone() as source:
+
+            print("Listening...")
+
+            listener.adjust_for_ambient_noise(source)
+
+            audio = listener.listen(source, timeout=5)
+
+            command = listener.recognize_google(audio)
+
+            return command.lower()
+
+    except Exception as error:
+
+        print("Error:", error)
+
+        return ""
+
+speak("Voice assistant started")
 
 while True:
 
-    user_command = hear()
+    user_text = listen()
 
-    if "time" in user_command:
+    if "time" in user_text:
 
         current_time = datetime.now().strftime("%I:%M %p")
-        talk(f"Current time is {current_time}")
 
-    elif "exit" in user_command:
+        speak(f"Current time is {current_time}")
 
-        talk("Assistant is shutting down")
+    elif "exit" in user_text:
+
+        speak("Goodbye")
         break
 
-    else:
+    elif user_text != "":
 
-        talk(f"I heard {user_command}")
+        speak(f"You said {user_text}")
