@@ -2,45 +2,47 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
-training_messages = [
-    "Win a free iPhone now!",
-    "Click here to claim your prize",
-    "Free money is waiting for you",
-    "Meeting scheduled at 3 PM tomorrow",
-    "Can you review my project code?",
-    "Your package has been shipped successfully"
+messages = [
+    "You won a free mobile phone",
+    "Claim your cash reward now",
+    "Free recharge available today",
+    "Project meeting at 5 PM",
+    "Send me the assignment file",
+    "Your order is delivered"
 ]
 
-training_labels = [
+labels = [
     "spam",
     "spam",
     "spam",
-    "ham",
-    "ham",
-    "ham"
+    "normal",
+    "normal",
+    "normal"
 ]
 
-spam_detector = Pipeline([
-    ("vectorizer", TfidfVectorizer()),
-    ("classifier", MultinomialNB())
+model = Pipeline([
+    ("text", TfidfVectorizer()),
+    ("ai_model", MultinomialNB())
 ])
 
-spam_detector.fit(training_messages, training_labels)
+model.fit(messages, labels)
 
-sample_messages = [
-    "Congratulations! You won a lottery",
-    "Let's have lunch together at noon"
+test_messages = [
+    "Congratulations! Free laptop waiting",
+    "Let's play cricket in evening"
 ]
 
-print("\nSpam Detection Results:\n")
+print("\nMessage Checking System\n")
 
-for message in sample_messages:
-    prediction = spam_detector.predict([message])[0]
+for text in test_messages:
 
-    if prediction == "spam":
-        result = "SPAM 🚫"
+    output = model.predict([text])[0]
+
+    if output == "spam":
+        status = "Spam Message 🚫"
     else:
-        result = "HAM ✅"
+        status = "Normal Message ✅"
 
-    print(f"Message: {message}")
-    print(f"Prediction: {result}\n")
+    print("Message:", text)
+    print("Result:", status)
+    print()
